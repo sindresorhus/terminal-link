@@ -9,3 +9,5 @@ module.exports = (text, url, options = {}) => {
 
 	return ansiEscapes.link(text, url);
 };
+
+module.exports.isSupported = supportsHyperlinks.stdout;

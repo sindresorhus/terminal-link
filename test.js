@@ -37,3 +37,8 @@ test('custom fallback', t => {
 	console.log(actual);
 	t.is(actual, 'My Website: https://sindresorhus.com');
 });
+
+test('isSupported', t => {
+	const m = require('.');
+	t.is(typeof m.isSupported, 'boolean');
+});

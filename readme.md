@@ -52,6 +52,14 @@ Type: `Function`
 
 Override the default fallback. The function receives the `text` and `url` as parameters and is expected to return a string.
 
+### terminalLink.isSupported
+
+Type: `boolean`
+
+Check whether the terminal support links.
+
+Prefer just using the default fallback or the `fallback` option whenever possible.
+
 
 ## Related
 
