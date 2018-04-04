@@ -1,0 +1,41 @@
+{
+	"name": "terminal-link",
+	"version": "0.0.0",
+	"description": "Create clickable links in the terminal",
+	"license": "MIT",
+	"repository": "sindresorhus/terminal-link",
+	"author": {
+		"name": "Sindre Sorhus",
+		"email": "sindresorhus@gmail.com",
+		"url": "sindresorhus.com"
+	},
+	"engines": {
+		"node": ">=6"
+	},
+	"scripts": {
+		"test": "xo && ava"
+	},
+	"files": [
+		"index.js"
+	],
+	"keywords": [
+		"link",
+		"hyperlink",
+		"url",
+		"ansi",
+		"escape",
+		"terminal",
+		"term",
+		"console",
+		"command-line"
+	],
+	"dependencies": {
+		"ansi-escapes": "^3.1.0",
+		"supports-hyperlinks": "^1.0.1"
+	},
+	"devDependencies": {
+		"ava": "*",
+		"clear-module": "^2.1.0",
+		"xo": "*"
+	}
+}
