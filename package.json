@@ -13,9 +13,10 @@
 		"node": ">=6"
 	},
 	"scripts": {
-		"test": "xo && ava"
+		"test": "xo && ava && tsd-check"
 	},
 	"files": [
+		"index.d.ts",
 		"index.js"
 	],
 	"keywords": [
@@ -36,6 +37,7 @@
 	"devDependencies": {
 		"ava": "*",
 		"clear-module": "^2.1.0",
+		"tsd-check": "^0.2.1",
 		"xo": "*"
 	}
 }
