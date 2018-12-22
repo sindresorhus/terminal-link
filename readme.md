@@ -2,7 +2,7 @@
 
 > Create clickable links in the terminal
 
-<img src="screenshot.gif" width="301">
+<img src="screenshot.gif" width="301" height="148">
 
 
 ## Install

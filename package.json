@@ -35,9 +35,9 @@
 		"supports-hyperlinks": "^1.0.1"
 	},
 	"devDependencies": {
-		"ava": "*",
-		"clear-module": "^2.1.0",
+		"ava": "^1.0.1",
+		"clear-module": "^3.0.0",
 		"tsd-check": "^0.2.1",
-		"xo": "*"
+		"xo": "^0.23.0"
 	}
 }
