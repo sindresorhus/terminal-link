@@ -16,8 +16,8 @@
 		"test": "xo && ava && tsd-check"
 	},
 	"files": [
-		"index.d.ts",
-		"index.js"
+		"index.js",
+		"index.d.ts"
 	],
 	"keywords": [
 		"link",
