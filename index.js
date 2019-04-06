@@ -10,5 +10,6 @@ module.exports = (text, url, options = {}) => {
 	return ansiEscapes.link(text, url);
 };
 
+// TODO: Remove this for the next major release
 module.exports.default = module.exports;
 module.exports.isSupported = supportsHyperlinks.stdout;
