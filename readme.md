@@ -26,6 +26,8 @@ console.log(link);
 
 ### terminalLink(text, url, [options])
 
+Create a link for use in stdout.
+
 [Supported terminals.](https://gist.github.com/egmontkob/eb114294efbcd5adb1944c9f3cb5feda)
 
 For unsupported terminals, the link will be printed in parens after the text: `My website (https://sindresorhus.com)`.
@@ -56,10 +58,43 @@ Override the default fallback. The function receives the `text` and `url` as par
 
 Type: `boolean`
 
-Check whether the terminal support links.
+Check whether the terminal's stdout supports links.
 
 Prefer just using the default fallback or the `fallback` option whenever possible.
 
+### terminalLink.stderr(text, url, [options])
+
+Create a link for use in stdout.
+
+#### text
+
+Type: `string`
+
+Text to linkify.
+
+#### url
+
+Type: `string`
+
+URL to link to.
+
+#### options
+
+Type: `Object`
+
+##### fallback
+
+Type: `Function`
+
+Override the default fallback. The function receives the `text` and `url` as parameters and is expected to return a string.
+
+### terminalLink.stderr.isSupported
+
+Type: `boolean`
+
+Check whether the terminal's stderr supports links.
+
+Prefer just using the default fallback or the `fallback` option whenever possible.
 
 ## Related
 
