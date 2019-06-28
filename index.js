@@ -2,8 +2,12 @@
 const ansiEscapes = require('ansi-escapes');
 const supportsHyperlinks = require('supports-hyperlinks');
 
-const terminalLink = (text, url, {target = 'stdout', ...options} = {}) => {
-	if (!supportsHyperlinks[target]) {
+const terminalLink = (text, url, options = {}) => {
+	if (typeof options.target === 'undefined') {
+		options.target = 'stdout';
+	}
+
+	if (!supportsHyperlinks[options.target]) {
 		return options.fallback ? options.fallback(text, url) : `${text} (${url})`;
 	}
 
