@@ -16,7 +16,7 @@ const terminalLink = (text, url, options = {}) => {
 
 module.exports = (text, url, options = {}) => terminalLink(text, url, options);
 
-module.exports.stderr = (text, url, options = {}) => terminalLink(text, url, {target: 'stderr', ...options});
+module.exports.stderr = (text, url, options = {}) => terminalLink(text, url, options);
 
 // TODO: Remove this for the next major release
 module.exports.default = module.exports;
