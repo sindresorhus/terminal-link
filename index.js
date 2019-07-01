@@ -2,12 +2,8 @@
 const ansiEscapes = require('ansi-escapes');
 const supportsHyperlinks = require('supports-hyperlinks');
 
-const terminalLink = (text, url, options = {}) => {
-	if (typeof options.target === 'undefined') {
-		options.target = 'stdout';
-	}
-
-	if (!supportsHyperlinks[options.target]) {
+const terminalLink = (text, url, {target = 'stdout', ...options} = {}) => {
+	if (!supportsHyperlinks[target]) {
 		return options.fallback ? options.fallback(text, url) : `${text} (${url})`;
 	}
 
@@ -16,7 +12,7 @@ const terminalLink = (text, url, options = {}) => {
 
 module.exports = (text, url, options = {}) => terminalLink(text, url, options);
 
-module.exports.stderr = (text, url, options = {}) => terminalLink(text, url, options);
+module.exports.stderr = (text, url, options = {}) => terminalLink(text, url, {target: 'stderr', ...options});
 
 // TODO: Remove this for the next major release
 module.exports.default = module.exports;
