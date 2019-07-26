@@ -4,7 +4,7 @@ const supportsHyperlinks = require('supports-hyperlinks');
 
 module.exports = (text, url, options = {}) => {
 	if (!supportsHyperlinks.stdout) {
-		return options.fallback ? options.fallback(text, url) : `${text} ( ${url} )`;
+		return options.fallback ? options.fallback(text, url) : `${text} (\u200B${url}\u200B)`;
 	}
 
 	return ansiEscapes.link(text, url);
