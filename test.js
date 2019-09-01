@@ -24,7 +24,7 @@ test('default fallback', t => {
 
 	const actual = m('My Website', 'https://sindresorhus.com');
 	console.log(actual);
-	t.is(actual, 'My Website (https://sindresorhus.com)');
+	t.is(actual, 'My Website (\u200Bhttps://sindresorhus.com\u200B)');
 });
 
 test('custom fallback', t => {
