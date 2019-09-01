@@ -31,13 +31,13 @@
 		"command-line"
 	],
 	"dependencies": {
-		"ansi-escapes": "^3.2.0",
-		"supports-hyperlinks": "^1.0.1"
+		"ansi-escapes": "^4.2.1",
+		"supports-hyperlinks": "^2.0.0"
 	},
 	"devDependencies": {
-		"ava": "^1.4.1",
-		"clear-module": "^3.1.0",
-		"tsd": "^0.7.2",
+		"ava": "^2.3.0",
+		"clear-module": "^4.0.0",
+		"tsd": "^0.7.4",
 		"xo": "^0.24.0"
 	}
 }

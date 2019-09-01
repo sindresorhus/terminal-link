@@ -24,7 +24,7 @@ console.log(link);
 
 ## API
 
-### terminalLink(text, url, [options])
+### terminalLink(text, url, options?)
 
 Create a link for use in stdout.
 
@@ -46,7 +46,7 @@ URL to link to.
 
 #### options
 
-Type: `Object`
+Type: `object`
 
 ##### fallback
 
@@ -62,31 +62,11 @@ Check whether the terminal's stdout supports links.
 
 Prefer just using the default fallback or the `fallback` option whenever possible.
 
-### terminalLink.stderr(text, url, [options])
+### terminalLink.stderr(text, url, options?)
 
 Create a link for use in stdout.
 
-#### text
-
-Type: `string`
-
-Text to linkify.
-
-#### url
-
-Type: `string`
-
-URL to link to.
-
-#### options
-
-Type: `Object`
-
-##### fallback
-
-Type: `Function`
-
-Override the default fallback. The function receives the `text` and `url` as parameters and is expected to return a string.
+Same arguments as `terminalLink()`.
 
 ### terminalLink.stderr.isSupported
 
@@ -96,13 +76,9 @@ Check whether the terminal's stderr supports links.
 
 Prefer just using the default fallback or the `fallback` option whenever possible.
 
+
 ## Related
 
 - [terminal-link-cli](https://github.com/sindresorhus/terminal-link-cli) - CLI for this module
 - [ink-link](https://github.com/sindresorhus/ink-link) - Link component for Ink
 - [chalk](https://github.com/chalk/chalk) - Terminal string styling done right
-
-
-## License
-
-MIT © [Sindre Sorhus](https://sindresorhus.com)

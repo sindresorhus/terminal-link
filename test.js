@@ -11,45 +11,45 @@ test.afterEach(() => {
 
 test('main', t => {
 	process.env.FORCE_HYPERLINK = 1;
-	const m = require('.');
+	const terminalLink = require('.');
 
-	const actual = m('My Website', 'https://sindresorhus.com');
+	const actual = terminalLink('My Website', 'https://sindresorhus.com');
 	console.log(actual);
 	t.is(actual, '\u001B]8;;https://sindresorhus.com\u0007My Website\u001B]8;;\u0007');
 });
 
 test('stderr', t => {
 	process.env.FORCE_HYPERLINK = 1;
-	const m = require('.');
+	const terminalLink = require('.');
 
-	const actual = m.stderr('My Website', 'https://sindresorhus.com');
+	const actual = terminalLink.stderr('My Website', 'https://sindresorhus.com');
 	console.log(actual);
 	t.is(actual, '\u001B]8;;https://sindresorhus.com\u0007My Website\u001B]8;;\u0007');
 });
 
 test('default fallback', t => {
 	process.env.FORCE_HYPERLINK = 0;
-	const m = require('.');
+	const terminalLink = require('.');
 
-	const actual = m('My Website', 'https://sindresorhus.com');
+	const actual = terminalLink('My Website', 'https://sindresorhus.com');
 	console.log(actual);
 	t.is(actual, 'My Website (\u200Bhttps://sindresorhus.com\u200B)');
 });
 
 test('stderr default fallback', t => {
 	process.env.FORCE_HYPERLINK = 0;
-	const m = require('.');
+	const terminalLink = require('.');
 
-	const actual = m.stderr('My Website', 'https://sindresorhus.com');
+	const actual = terminalLink.stderr('My Website', 'https://sindresorhus.com');
 	console.log(actual);
 	t.is(actual, 'My Website (\u200Bhttps://sindresorhus.com\u200B)');
 });
 
 test('custom fallback', t => {
 	process.env.FORCE_HYPERLINK = 0;
-	const m = require('.');
+	const terminalLink = require('.');
 
-	const actual = m('My Website', 'https://sindresorhus.com', {
+	const actual = terminalLink('My Website', 'https://sindresorhus.com', {
 		fallback: (text, url) => `${text}: ${url}`
 	});
 	console.log(actual);
@@ -58,9 +58,9 @@ test('custom fallback', t => {
 
 test('custom fallback stderr', t => {
 	process.env.FORCE_HYPERLINK = 0;
-	const m = require('.');
+	const terminalLink = require('.');
 
-	const actual = m.stderr('My Website', 'https://sindresorhus.com', {
+	const actual = terminalLink.stderr('My Website', 'https://sindresorhus.com', {
 		fallback: (text, url) => `${text}: ${url}`
 	});
 	console.log(actual);
@@ -68,11 +68,11 @@ test('custom fallback stderr', t => {
 });
 
 test('isSupported', t => {
-	const m = require('.');
-	t.is(typeof m.isSupported, 'boolean');
+	const terminalLink = require('.');
+	t.is(typeof terminalLink.isSupported, 'boolean');
 });
 
 test('isSupported stderr', t => {
-	const m = require('.');
-	t.is(typeof m.stderr.isSupported, 'boolean');
+	const terminalLink = require('.');
+	t.is(typeof terminalLink.stderr.isSupported, 'boolean');
 });

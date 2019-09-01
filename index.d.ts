@@ -30,7 +30,7 @@ declare const terminalLink: {
 	(text: string, url: string, options?: terminalLink.Options): string;
 
 	/**
-	Check whether the terminal support links.
+	Check whether the terminal supports links.
 
 	Prefer just using the default fallback or the `fallback` option whenever possible.
 	*/
@@ -57,15 +57,12 @@ declare const terminalLink: {
 		(text: string, url: string, options?: terminalLink.Options): string;
 
 		/**
-		Check whether the terminal's stderr support links.
+		Check whether the terminal's stderr supports links.
 
 		Prefer just using the default fallback or the `fallback` option whenever possible.
 		*/
 		readonly isSupported: boolean;
 	}
-
-	// TODO: Remove this for the next major release
-	default: typeof terminalLink;
 };
 
 export = terminalLink;
