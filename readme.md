@@ -50,9 +50,11 @@ Type: `object`
 
 ##### fallback
 
-Type: `Function`
+Type: `Function | false`
 
 Override the default fallback. The function receives the `text` and `url` as parameters and is expected to return a string.
+
+If set to `false`, the fallback will be disabled when a terminal is unsupported.
 
 ### terminalLink.isSupported
 

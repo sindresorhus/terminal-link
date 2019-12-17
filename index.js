@@ -4,6 +4,11 @@ const supportsHyperlinks = require('supports-hyperlinks');
 
 const terminalLink = (text, url, {target = 'stdout', ...options} = {}) => {
 	if (!supportsHyperlinks[target]) {
+		// If the fallback has been explicitly disabled, don't modify the text itself.
+		if (options.fallback === false) {
+			return text;
+		}
+
 		return options.fallback ? options.fallback(text, url) : `${text} (\u200B${url}\u200B)`;
 	}
 
