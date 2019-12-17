@@ -36,6 +36,17 @@ test('default fallback', t => {
 	t.is(actual, 'My Website (\u200Bhttps://sindresorhus.com\u200B)');
 });
 
+test('disabled fallback', t => {
+	process.env.FORCE_HYPERLINK = 0;
+	const terminalLink = require('.');
+
+	const actual = terminalLink('My Website', 'https://sindresorhus.com', {
+		fallback: false
+	});
+	console.log(actual);
+	t.is(actual, 'My Website');
+});
+
 test('stderr default fallback', t => {
 	process.env.FORCE_HYPERLINK = 0;
 	const terminalLink = require('.');
