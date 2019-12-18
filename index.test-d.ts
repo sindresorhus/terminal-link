@@ -9,6 +9,12 @@ expectType<string>(
 	})
 );
 
+expectType<string>(
+	terminalLink('text', 'url', {
+		fallback: false
+	})
+);
+
 expectType<boolean>(terminalLink.isSupported);
 
 // stderr
