@@ -5,7 +5,7 @@ declare namespace terminalLink {
 
 		@default `${text} (${url})`
 		*/
-		fallback?: ((text: string, url: string) => string) | false;
+		fallback?: ((text: string, url: string) => string) | boolean;
 	}
 }
 
