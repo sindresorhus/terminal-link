@@ -9,7 +9,7 @@ const terminalLink = (text, url, {target = 'stdout', ...options} = {}) => {
 			return text;
 		}
 
-		return options.fallback ? options.fallback(text, url) : `${text} (\u200B${url}\u200B)`;
+		return typeof options.fallback === 'function' ? options.fallback(text, url) : `${text} (\u200B${url}\u200B)`;
 	}
 
 	return ansiEscapes.link(text, url);
