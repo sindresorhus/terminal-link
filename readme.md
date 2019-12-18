@@ -4,13 +4,11 @@
 
 <img src="screenshot.gif" width="301" height="148">
 
-
 ## Install
 
 ```
 $ npm install terminal-link
 ```
-
 
 ## Usage
 
@@ -20,7 +18,6 @@ const terminalLink = require('terminal-link');
 const link = terminalLink('My Website', 'https://sindresorhus.com');
 console.log(link);
 ```
-
 
 ## API
 
@@ -77,7 +74,6 @@ Type: `boolean`
 Check whether the terminal's stderr supports links.
 
 Prefer just using the default fallback or the `fallback` option whenever possible.
-
 
 ## Related
 

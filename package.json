@@ -4,6 +4,7 @@
 	"description": "Create clickable links in the terminal",
 	"license": "MIT",
 	"repository": "sindresorhus/terminal-link",
+	"funding": "https://github.com/sponsors/sindresorhus",
 	"author": {
 		"name": "Sindre Sorhus",
 		"email": "sindresorhus@gmail.com",
@@ -37,7 +38,7 @@
 	"devDependencies": {
 		"ava": "^2.3.0",
 		"clear-module": "^4.0.0",
-		"tsd": "^0.7.4",
-		"xo": "^0.24.0"
+		"tsd": "^0.11.0",
+		"xo": "^0.25.3"
 	}
 }
