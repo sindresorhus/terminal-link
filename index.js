@@ -9,7 +9,8 @@ const terminalLink = (text, url, {target = 'stdout', ...options} = {}) => {
 			return text;
 		}
 
-		return typeof options.fallback === 'function' ? options.fallback(text, url) : `${text} (\u200B${url}\u200B)`;
+		// Wrap it in spaces so it doesn't use the closing parenthesis as part of the link
+		return typeof options.fallback === 'function' ? options.fallback(text, url) : `${text} (\u200B ${url} \u200B)`;
 	}
 
 	return ansiEscapes.link(text, url);

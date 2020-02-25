@@ -33,7 +33,7 @@ test('default fallback', t => {
 
 	const actual = terminalLink('My Website', 'https://sindresorhus.com');
 	console.log(actual);
-	t.is(actual, 'My Website (\u200Bhttps://sindresorhus.com\u200B)');
+	t.is(actual, 'My Website (\u200B https://sindresorhus.com \u200B)');
 });
 
 test('disabled fallback', t => {
@@ -55,7 +55,7 @@ test('explicitly enabled fallback', t => {
 		fallback: true
 	});
 	console.log(actual);
-	t.is(actual, 'My Website (\u200Bhttps://sindresorhus.com\u200B)');
+	t.is(actual, 'My Website (\u200B https://sindresorhus.com \u200B)');
 });
 
 test('stderr default fallback', t => {
@@ -64,7 +64,7 @@ test('stderr default fallback', t => {
 
 	const actual = terminalLink.stderr('My Website', 'https://sindresorhus.com');
 	console.log(actual);
-	t.is(actual, 'My Website (\u200Bhttps://sindresorhus.com\u200B)');
+	t.is(actual, 'My Website (\u200B https://sindresorhus.com \u200B)');
 });
 
 test('custom fallback', t => {

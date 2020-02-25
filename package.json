@@ -1,6 +1,6 @@
 {
 	"name": "terminal-link",
-	"version": "2.1.1",
+	"version": "2.1.2",
 	"description": "Create clickable links in the terminal",
 	"license": "MIT",
 	"repository": "sindresorhus/terminal-link",
