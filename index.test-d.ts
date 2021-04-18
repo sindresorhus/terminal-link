@@ -1,5 +1,5 @@
 import {expectType} from 'tsd';
-import terminalLink = require('.');
+import terminalLink from './index.js';
 
 expectType<string>(terminalLink('text', 'url'));
 
@@ -17,7 +17,7 @@ expectType<string>(
 
 expectType<boolean>(terminalLink.isSupported);
 
-// stderr
+// Stderr
 
 expectType<string>(terminalLink.stderr('text', 'url'));
 
@@ -27,4 +27,4 @@ expectType<string>(
 	})
 );
 
-expectType<boolean>(terminalLink.stderr.isSupported)
+expectType<boolean>(terminalLink.stderr.isSupported);

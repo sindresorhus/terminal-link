@@ -1,44 +1,46 @@
-import {serial as test} from 'ava';
-import clearModule from 'clear-module';
+import test from 'ava';
 
-test.beforeEach(() => {
-	clearModule.all();
-});
+// TODO: Tests don't currently work as we need to be able to clear `supports-color`, but our `importFresh` helper can only bypass the cache at top-level.
+
+// eslint-disable-next-line node/no-unsupported-features/es-syntax
+const importFresh = async modulePath => import(`${modulePath}?x=${new Date()}`);
+
+const importModule = async () => (await importFresh('./index.js')).default;
 
 test.afterEach(() => {
 	delete process.env.FORCE_HYPERLINK;
 });
 
-test('main', t => {
+test('main', async t => {
 	process.env.FORCE_HYPERLINK = 1;
-	const terminalLink = require('.');
+	const terminalLink = await importModule();
 
 	const actual = terminalLink('My Website', 'https://sindresorhus.com');
 	console.log(actual);
 	t.is(actual, '\u001B]8;;https://sindresorhus.com\u0007My Website\u001B]8;;\u0007');
 });
 
-test('stderr', t => {
+test('stderr', async t => {
 	process.env.FORCE_HYPERLINK = 1;
-	const terminalLink = require('.');
+	const terminalLink = await importModule();
 
 	const actual = terminalLink.stderr('My Website', 'https://sindresorhus.com');
 	console.log(actual);
 	t.is(actual, '\u001B]8;;https://sindresorhus.com\u0007My Website\u001B]8;;\u0007');
 });
 
-test('default fallback', t => {
+test('default fallback', async t => {
 	process.env.FORCE_HYPERLINK = 0;
-	const terminalLink = require('.');
+	const terminalLink = await importModule();
 
 	const actual = terminalLink('My Website', 'https://sindresorhus.com');
 	console.log(actual);
 	t.is(actual, 'My Website (\u200Bhttps://sindresorhus.com\u200B)');
 });
 
-test('disabled fallback', t => {
+test('disabled fallback', async t => {
 	process.env.FORCE_HYPERLINK = 0;
-	const terminalLink = require('.');
+	const terminalLink = await importModule();
 
 	const actual = terminalLink('My Website', 'https://sindresorhus.com', {
 		fallback: false
@@ -47,9 +49,9 @@ test('disabled fallback', t => {
 	t.is(actual, 'My Website');
 });
 
-test('explicitly enabled fallback', t => {
+test('explicitly enabled fallback', async t => {
 	process.env.FORCE_HYPERLINK = 0;
-	const terminalLink = require('.');
+	const terminalLink = await importModule();
 
 	const actual = terminalLink('My Website', 'https://sindresorhus.com', {
 		fallback: true
@@ -58,18 +60,18 @@ test('explicitly enabled fallback', t => {
 	t.is(actual, 'My Website (\u200Bhttps://sindresorhus.com\u200B)');
 });
 
-test('stderr default fallback', t => {
+test('stderr default fallback', async t => {
 	process.env.FORCE_HYPERLINK = 0;
-	const terminalLink = require('.');
+	const terminalLink = await importModule();
 
 	const actual = terminalLink.stderr('My Website', 'https://sindresorhus.com');
 	console.log(actual);
 	t.is(actual, 'My Website (\u200Bhttps://sindresorhus.com\u200B)');
 });
 
-test('custom fallback', t => {
+test('custom fallback', async t => {
 	process.env.FORCE_HYPERLINK = 0;
-	const terminalLink = require('.');
+	const terminalLink = await importModule();
 
 	const actual = terminalLink('My Website', 'https://sindresorhus.com', {
 		fallback: (text, url) => `${text}: ${url}`
@@ -78,9 +80,9 @@ test('custom fallback', t => {
 	t.is(actual, 'My Website: https://sindresorhus.com');
 });
 
-test('custom fallback stderr', t => {
+test('custom fallback stderr', async t => {
 	process.env.FORCE_HYPERLINK = 0;
-	const terminalLink = require('.');
+	const terminalLink = await importModule();
 
 	const actual = terminalLink.stderr('My Website', 'https://sindresorhus.com', {
 		fallback: (text, url) => `${text}: ${url}`
@@ -89,12 +91,12 @@ test('custom fallback stderr', t => {
 	t.is(actual, 'My Website: https://sindresorhus.com');
 });
 
-test('isSupported', t => {
-	const terminalLink = require('.');
+test('isSupported', async t => {
+	const terminalLink = await importModule();
 	t.is(typeof terminalLink.isSupported, 'boolean');
 });
 
-test('isSupported stderr', t => {
-	const terminalLink = require('.');
+test('isSupported stderr', async t => {
+	const terminalLink = await importModule();
 	t.is(typeof terminalLink.stderr.isSupported, 'boolean');
 });

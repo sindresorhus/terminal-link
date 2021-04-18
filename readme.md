@@ -13,7 +13,7 @@ $ npm install terminal-link
 ## Usage
 
 ```js
-const terminalLink = require('terminal-link');
+import terminalLink from 'terminal-link';
 
 const link = terminalLink('My Website', 'https://sindresorhus.com');
 console.log(link);

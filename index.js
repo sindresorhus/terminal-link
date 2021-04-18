@@ -1,8 +1,7 @@
-'use strict';
-const ansiEscapes = require('ansi-escapes');
-const supportsHyperlinks = require('supports-hyperlinks');
+import ansiEscapes from 'ansi-escapes';
+import supportsHyperlinks from 'supports-hyperlinks';
 
-const terminalLink = (text, url, {target = 'stdout', ...options} = {}) => {
+export default function terminalLink(text, url, {target = 'stdout', ...options} = {}) {
 	if (!supportsHyperlinks[target]) {
 		// If the fallback has been explicitly disabled, don't modify the text itself.
 		if (options.fallback === false) {
@@ -13,11 +12,8 @@ const terminalLink = (text, url, {target = 'stdout', ...options} = {}) => {
 	}
 
 	return ansiEscapes.link(text, url);
-};
+}
 
-module.exports = (text, url, options = {}) => terminalLink(text, url, options);
-
-module.exports.stderr = (text, url, options = {}) => terminalLink(text, url, {target: 'stderr', ...options});
-
-module.exports.isSupported = supportsHyperlinks.stdout;
-module.exports.stderr.isSupported = supportsHyperlinks.stderr;
+terminalLink.isSupported = supportsHyperlinks.stdout;
+terminalLink.stderr = (text, url, options = {}) => terminalLink(text, url, {target: 'stderr', ...options});
+terminalLink.stderr.isSupported = supportsHyperlinks.stderr;
