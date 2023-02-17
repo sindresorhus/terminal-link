@@ -63,7 +63,7 @@ Prefer just using the default fallback or the `fallback` option whenever possibl
 
 ### terminalLink.stderr(text, url, options?)
 
-Create a link for use in stdout.
+Create a link for use in stderr.
 
 Same arguments as `terminalLink()`.
 
