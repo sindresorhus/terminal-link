@@ -1,11 +1,11 @@
-export interface Options {
+export type Options = {
 	/**
 	Override the default fallback. If false, the fallback will be disabled.
 
 	@default `${text} (${url})`
 	*/
 	readonly fallback?: ((text: string, url: string) => string) | boolean;
-}
+};
 
 declare const terminalLink: {
 	/**

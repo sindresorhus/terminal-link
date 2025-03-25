@@ -6,8 +6,8 @@
 
 ## Install
 
-```
-$ npm install terminal-link
+```sh
+npm install terminal-link
 ```
 
 ## Usage

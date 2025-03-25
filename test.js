@@ -1,10 +1,11 @@
+import process from 'node:process';
 import test from 'ava';
 
 // TODO: Tests don't currently work as we need to be able to clear `supports-color`, but our `importFresh` helper can only bypass the cache at top-level.
 
-// eslint-disable-next-line node/no-unsupported-features/es-syntax
 const importFresh = async modulePath => import(`${modulePath}?x=${new Date()}`);
 
+// eslint-disable-next-line unicorn/no-await-expression-member
 const importModule = async () => (await importFresh('./index.js')).default;
 
 test.afterEach(() => {
@@ -43,7 +44,7 @@ test('disabled fallback', async t => {
 	const terminalLink = await importModule();
 
 	const actual = terminalLink('My Website', 'https://sindresorhus.com', {
-		fallback: false
+		fallback: false,
 	});
 	console.log(actual);
 	t.is(actual, 'My Website');
@@ -54,7 +55,7 @@ test('explicitly enabled fallback', async t => {
 	const terminalLink = await importModule();
 
 	const actual = terminalLink('My Website', 'https://sindresorhus.com', {
-		fallback: true
+		fallback: true,
 	});
 	console.log(actual);
 	t.is(actual, 'My Website (\u200Bhttps://sindresorhus.com\u200B)');
@@ -74,7 +75,7 @@ test('custom fallback', async t => {
 	const terminalLink = await importModule();
 
 	const actual = terminalLink('My Website', 'https://sindresorhus.com', {
-		fallback: (text, url) => `${text}: ${url}`
+		fallback: (text, url) => `${text}: ${url}`,
 	});
 	console.log(actual);
 	t.is(actual, 'My Website: https://sindresorhus.com');
@@ -85,7 +86,7 @@ test('custom fallback stderr', async t => {
 	const terminalLink = await importModule();
 
 	const actual = terminalLink.stderr('My Website', 'https://sindresorhus.com', {
-		fallback: (text, url) => `${text}: ${url}`
+		fallback: (text, url) => `${text}: ${url}`,
 	});
 	console.log(actual);
 	t.is(actual, 'My Website: https://sindresorhus.com');
