@@ -27,7 +27,7 @@ Create a link for use in stdout.
 
 [Supported terminals.](https://gist.github.com/egmontkob/eb114294efbcd5adb1944c9f3cb5feda)
 
-For unsupported terminals, the link will be printed in parens after the text: `My website (https://sindresorhus.com)`.
+For unsupported terminals, by default the link will be printed in parens after the text: `My website (https://sindresorhus.com)`.
 
 #### text
 
@@ -51,7 +51,7 @@ Type: `Function | boolean`
 
 Override the default fallback. The function receives the `text` and `url` as parameters and is expected to return a string.
 
-If set to `false`, the fallback will be disabled when a terminal is unsupported.
+If set to `false`, the `text` will be returned as-is when a terminal is unsupported.
 
 ### terminalLink.isSupported
 
