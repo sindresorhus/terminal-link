@@ -47,7 +47,7 @@ Type: `object`
 
 ##### fallback
 
-Type: `Function | boolean`
+Type: `function | boolean`
 
 Override the default fallback. The function receives the `text` and `url` as parameters and is expected to return a string.
 

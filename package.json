@@ -17,11 +17,10 @@
 	},
 	"sideEffects": false,
 	"engines": {
-		"node": ">=18"
+		"node": ">=20"
 	},
 	"scripts": {
-		"//test": "xo && ava && tsd",
-		"test": "xo && tsd"
+		"test": "xo && ava && tsd"
 	},
 	"files": [
 		"index.js",
@@ -40,12 +39,12 @@
 	],
 	"dependencies": {
 		"ansi-escapes": "^7.0.0",
-		"supports-hyperlinks": "^3.2.0"
+		"supports-hyperlinks": "^4.1.0"
 	},
 	"devDependencies": {
-		"ava": "^6.2.0",
-		"tsd": "^0.31.2",
-		"xo": "^0.60.0"
+		"ava": "^6.4.1",
+		"tsd": "^0.33.0",
+		"xo": "^1.2.2"
 	},
 	"ava": {
 		"serial": true
