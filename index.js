@@ -8,7 +8,15 @@ export default function terminalLink(text, url, {target = 'stdout', ...options} 
 			return text;
 		}
 
-		return typeof options.fallback === 'function' ? options.fallback(text, url) : `${text} (\u200B${url}\u200B)`;
+		if (typeof options.fallback === 'function') {
+			return options.fallback(text, url);
+		}
+
+		// Use raw URL bounded by whitespace for maximum compatibility.
+		// Most terminal linkifiers only guarantee correct detection when URLs are
+		// delimited by whitespace. No brackets, quotes, or special characters that
+		// could interfere with URL detection or be included in the linked text.
+		return `${text} ${url}`;
 	}
 
 	return ansiEscapes.link(text, url);
